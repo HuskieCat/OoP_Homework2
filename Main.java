@@ -1,5 +1,7 @@
 class Main 
 {
+  static int index = 0;
+
   public static void main(String[] args) 
   {
     System.out.println("Program Start");
@@ -8,7 +10,7 @@ class Main
     input = ToBasics(input);
     System.out.println("User Input:" + input);
 
-    if(Set(input, 0))
+    if(Set(input))
     {
       System.out.println("Valid");
     }
@@ -23,7 +25,7 @@ class Main
     return input.replaceAll("\\d", "n");
   }
 
-  static boolean ValidateCharacter(char character, String input, int index)
+  static boolean ValidateCharacter(char character, String input)
   {
     System.out.println("ValidateCharacter [" + character + "][" + index + "][" + input.charAt(index)+"]");
     if(character == input.charAt(index))
@@ -33,48 +35,48 @@ class Main
     return false;
   }
 
-  static boolean Set(String input, int index)
+  static boolean Set(String input)
   {
     System.out.println("Set [" + index + "][" + input.charAt(index)+"]");
-    if ( ValidateCharacter('{', input, index)
-      && List(input, index+1)
-      && ValidateCharacter('}', input, index+2))
+    if ( ValidateCharacter('{', input)
+      && List(input)
+      && ValidateCharacter('}', input))
     {
       return true;
     }
     return false;
   }
 
-  static boolean List(String input, int index)
+  static boolean List(String input)
   {
     System.out.println("List [" + index + "][" + input.charAt(index)+"]");
-    if(Head(input, index) && Tail(input, index+1))
+    if(Head(input) && Tail(input))
     {
       return true;
     }
     return true;
   }
 
-  static boolean Head(String input, int index)
+  static boolean Head(String input)
   {
     System.out.println("Head [" + index + "][" + input.charAt(index)+"]");
-    if(ValidateCharacter('n', input, index))
+    if(ValidateCharacter('n', input))
     {
       return true;
     }
-    else if(Set(input, index))
+    else if(Set(input))
     {
       return true;
     }
     return false;
   }
 
-  static boolean Tail(String input, int index)
+  static boolean Tail(String input)
   {
     System.out.println("Tail [" + index + "][" + input.charAt(index)+"]");
-    if ( ValidateCharacter(',', input, index)
-      && Head(input, index+1)
-      && Tail(input, index+2))
+    if ( ValidateCharacter(',', input)
+      && Head(input)
+      && Tail(input))
     {
       return true;
     }
