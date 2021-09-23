@@ -7,6 +7,7 @@ class Main
     System.out.println("Program Start");
 
     String input = "{{1,2},3}";
+    //input = "{}{}";
     input = ToBasics(input);
     System.out.println("User Input:" + input);
 
@@ -30,9 +31,11 @@ class Main
     System.out.println("ValidateCharacter [" + character + "][" + index + "][" + input.charAt(index)+"]");
     if(character == input.charAt(index))
     {
+      System.out.println("Valid ["+character+"]["+input.charAt(index)+"]");
       index++;
       return true;
     }
+    System.out.println("Invalid ["+character+"]["+input.charAt(index)+"]");
     return false;
   }
 
@@ -55,7 +58,7 @@ class Main
     {
       return true;
     }
-    return true;
+    return false;
   }
 
   static boolean Head(String input)
@@ -83,7 +86,7 @@ class Main
     }
     else
     {
-      return true;
+      return false;
     }
   }
 }
