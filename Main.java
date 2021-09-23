@@ -63,7 +63,6 @@ class Main
     System.out.println("Head [" + index + "][" + input.charAt(index)+"]");
     if(ValidateCharacter('n', input))
     {
-      index++;
       return true;
     }
     else if(Set(input))
@@ -80,9 +79,11 @@ class Main
       && Head(input)
       && Tail(input))
     {
-      index++;
       return true;
     }
-    return true;
+    else
+    {
+      return true;
+    }
   }
 }
